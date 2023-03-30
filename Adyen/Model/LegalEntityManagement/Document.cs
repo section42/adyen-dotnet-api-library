@@ -213,7 +213,7 @@ namespace Adyen.Model.LegalEntityManagement
         /// The unique identifier of the document.
         /// </summary>
         /// <value>The unique identifier of the document.</value>
-        [DataMember(Name = "id", IsRequired = false, EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; private set; }
 
         /// <summary>
