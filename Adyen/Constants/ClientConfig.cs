@@ -61,6 +61,9 @@ namespace Adyen.Constants
         public static string StoredValueEndpointTest = "https://pal-test.adyen.com/pal/servlet/StoredValue";
         public static string StoredValueEndpointLive = "https://pal-live.adyen.com/pal/servlet/StoredValue";
         public static string StoredValueVersion = "v46";
+        public static string BalancePlatformEndpointTest = "https://balanceplatform-api-test.adyen.com/bcl/";
+        public static string BalancePlatformEndpointLive = "https://balanceplatform-api-live.adyen.com/bcl/";
+        public static string BalancePlatformVersion = "v2";
         public static string ManagementEndpointTest = "https://management-test.adyen.com";
         public static string ManagementEndpointLive = "https://management-live.adyen.com";
         public static string ManagementVersion = "v1";

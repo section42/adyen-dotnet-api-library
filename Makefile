@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 
 generator:=csharp-netcore
-services:=BinLookup Checkout LegalEntityManagement Payments Payouts PosTerminalManagement StoredValue
+services:=BalancePlatform BinLookup Checkout LegalEntityManagement Payments Payouts PosTerminalManagement StoredValue
 models:=Adyen/Model
 output:=target/out
 
@@ -13,34 +13,26 @@ output:=target/out
 models: $(services)
 
 BalanceControl: spec=BalanceControlService-v1
-BalanceControl: service=balanceControlService
 BalancePlatform: spec=BalancePlatformService-v2
 BinLookup: spec=BinLookupService-v54
-BinLookup: service=binLookup
+BalancePlatform: service=balancePlatformService
 Checkout: spec=CheckoutService-v70
-Checkout: service=checkout
 DataProtection: spec=DataProtectionService-v1
-DataProtection: service=dataProtection
 StoredValue: spec=StoredValueService-v46
-StoredValue: service=storedvalue
 PosTerminalManagement: spec=TfmAPIService-v1
 Payments: spec=PaymentService-v68
-Payments: service=payments
 Recurring: spec=RecurringService-v68
-Recurring: service=recurring
 Payouts: spec=PayoutService-v68
-Payouts: service=payoutsService
 Management: spec=ManagementService-v1
-Management: service=management
+LegalEntityManagement: spec=LegalEntityService-v2
+BalancePlatform: spec=BalancePlatformService-v2
 LegalEntityManagement: spec=LegalEntityService-v3
-LegalEntityManagement: service=legalEntityManagement
 BalancePlatform: spec=BalancePlatformService-v2
 PlatformsAccount: spec=AccountService-v6
 PlatformsFund: spec=FundService-v6
 PlatformsNotificationConfiguration: spec=NotificationConfigurationService-v6
 PlatformsHostedOnboardingPage: spec=HopService-v6
 Transfers: spec=TransferService-v3
-Transfers: service=transfers
 
 $(services): target/spec $(openapi-generator-jar) 
 	rm -rf $(models)/$@ $(output)
@@ -60,7 +52,8 @@ $(services): target/spec $(openapi-generator-jar)
 	mv target/out/src/Adyen.Model/$@/* Adyen/Model/$@
 
 # Generate a full client (models and service classes) ((adjust the baseUrl const yourselves))
-full-services:= Checkout 
+full-services:= 
+
 $(full-services): target/spec $(openapi-generator-jar)  
 	rm -rf $(output)
 	$(openapi-generator-cli) generate \
