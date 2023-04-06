@@ -332,9 +332,9 @@ namespace Adyen.Model.Management
         /// </summary>
         /// <value>Payment methods details.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InnerFixer> Data { get; set; }
+        public List<PaymentMethodWrapper> Data { get; set; }
 
-        public class InnerFixer{
+        public class PaymentMethodWrapper{
             public PaymentMethod PaymentMethod { get; set; }
         }
         
