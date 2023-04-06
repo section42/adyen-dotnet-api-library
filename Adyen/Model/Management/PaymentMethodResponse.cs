@@ -312,7 +312,7 @@ namespace Adyen.Model.Management
         /// <param name="itemsTotal">Total number of items. (required).</param>
         /// <param name="pagesTotal">Total number of pages. (required).</param>
         /// <param name="typesWithErrors">Payment method types with errors..</param>
-        public PaymentMethodResponse(PaginationLinks links = default(PaginationLinks), List<InnerFixer> data = default(List<InnerFixer>), int? itemsTotal = default(int?), int? pagesTotal = default(int?), List<TypesWithErrorsEnum> typesWithErrors = default(List<TypesWithErrorsEnum>))
+        public PaymentMethodResponse(PaginationLinks links = default(PaginationLinks), List<PaymentMethodWrapper> data = default(List<PaymentMethodWrapper>), int? itemsTotal = default(int?), int? pagesTotal = default(int?), List<TypesWithErrorsEnum> typesWithErrors = default(List<TypesWithErrorsEnum>))
         {
             this.ItemsTotal = itemsTotal;
             this.PagesTotal = pagesTotal;
